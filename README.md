@@ -13,3 +13,37 @@ In two steps must be conducted row by row sequentially but this step for each co
 ![matrix3](/images/matrix3.PNG)
 Same two steps is repeated for every row then the result will be identity matrix on the right-hand side and inverted matrix on the left-hand side.
 ![matrix4](/images/matrix4.PNG)
+
+### Pseudocode 
+In this section pseudocode of serial implementation and parallel implementation will be described which are both based on the Gauss Jordan method. Sequential implementation is very similar parallel implementation except instead using the global id zero and on I will be looping for each element of the matrix. 
+   #### Serial
+		For loop every row starting from the bottom row
+			If the first element is larger than the previous first element  
+     				Move the row up which requires a for loop for each item
+For loop column I for each column 
+		For loop every row
+     			For loop every item 
+				Divide element by diagonal element
+				For loop for each item 
+Item subtract same item I on the pivot row multiplied by pivot element which is same row as the item but element I 
+For loop column I for each column 
+		For loop every row
+     			For loop every item 
+				Divide element by diagonal element
+   #### Parallel
+		For loop every row
+			Call division kernel 
+				Get global id (0);
+				If diagonal item is not zero and not diagonal item 
+Divide items of the row by diagonal item
+			Call diagonal division kernel 
+				Set diagonal item to 1
+			Call elimination kernel  
+				Get global id (0);
+				Get global id (1);
+				If row is not equal to current row of the loop and item not equal to pivot 				row item	
+Item subtract same item I on the pivot row multiplied by pivot element which is same row as the item but element I 
+			Call pivot column elimination kernel 
+				Get global id (0);
+				If row is not equal to current row
+Item subtract same item I on the pivot row multiplied by pivot element which is same row as the item but element I 
