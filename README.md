@@ -20,30 +20,30 @@ In this section pseudocode of serial implementation and parallel implementation 
 		For loop every row starting from the bottom row
 			If the first element is larger than the previous first element  
      				Move the row up which requires a for loop for each item
-For loop column I for each column 
-		For loop every row
-     			For loop every item 
-				Divide element by diagonal element
+		For loop column I for each column 
+			For loop every row
+     				For loop every item 
+					Divide element by diagonal element
 				For loop for each item 
-Item subtract same item I on the pivot row multiplied by pivot element which is same row as the item but element I 
-For loop column I for each column 
-		For loop every row
-     			For loop every item 
-				Divide element by diagonal element
+					Item subtract same item I on the pivot row multiplied by pivot element which is same row as the 					item but element I 
+		For loop column I for each column 
+			For loop every row
+     				For loop every item 
+					Divide element by diagonal element
    #### Parallel
 		For loop every row
 			Call division kernel 
 				Get global id (0);
 				If diagonal item is not zero and not diagonal item 
-Divide items of the row by diagonal item
+					Divide items of the row by diagonal item
 			Call diagonal division kernel 
 				Set diagonal item to 1
 			Call elimination kernel  
 				Get global id (0);
 				Get global id (1);
-				If row is not equal to current row of the loop and item not equal to pivot 				row item	
-Item subtract same item I on the pivot row multiplied by pivot element which is same row as the item but element I 
+				If row is not equal to current row of the loop and item not equal to pivot row item	
+					Item subtract same item I on the pivot row multiplied by pivot element which is same row as the 					item but element I 
 			Call pivot column elimination kernel 
 				Get global id (0);
-				If row is not equal to current row
-Item subtract same item I on the pivot row multiplied by pivot element which is same row as the item but element I 
+				If row is not equal to current row Item 
+					subtract same item I on the pivot row multiplied by pivot element which is same row as the item 					but element I 
