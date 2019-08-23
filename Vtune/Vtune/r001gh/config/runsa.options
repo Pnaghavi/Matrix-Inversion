@@ -1,0 +1,19 @@
+-r
+C:\Users\pinag\Desktop\EE524\Final Project\ElimVT\VtuneElim\Vtune\r001gh
+--itt-config=frame
+--stack-stitching
+--etw-config=dma,frames
+--data-limit-mb=500
+--disk-space-limit=0
+--type=opencl_ex
+--type=opencl,mediasdk
+--itt-config=task
+--gpu-config=preset2:timer=100us
+--mrte-type=java,dotnet
+--event-config=CPU_CLK_UNHALTED.THREAD:sa=2500000,CPU_CLK_UNHALTED.REF_TSC:sa=2500000,INST_RETIRED.ANY:sa=2500000,CPU_CLK_UNHALTED.REF_XCLK:sa=100003,CPU_CLK_UNHALTED.ONE_THREAD_ACTIVE:sa=100003
+--platform-type=116
+--uncore-sampling-interval=10
+--mrte-mode=auto
+--etw-config=clr,js
+--
+C:\Users\pinag\Desktop\EE524\Final Project\ElimVT\VtuneElim\x64\Debug\VtuneElim.exe
