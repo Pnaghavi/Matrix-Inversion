@@ -42,7 +42,7 @@ For Vtune analysis was only done for matrices of size 1000 given the most common
 FPU utilization 5.4% elapsed time from the overview report. 
 FPU utilization 5.7% elapsed time from the compute basics report. 
 In terms of memory usage, no local memory, typed, and untyped memory was used was used by the kernels. GPU memory bandwidth is listed below. 
-![memory Bandwidth](/images/memory Bandwidth.PNG)
+![memory Bandwidth](/images/memory-Bandwidth.PNG)
 
 Looking back at the roofline graph this algorithm theoretically should be memory bandwidth limited but it seems like the bottleneck of this algorithm is due to fact that each kernel has to run sequentially to provide correctly inverted matrix while the instances of the kernels can run in parallel. As it can be seen in the table above kernels are often stalled or idle except for the elimination kernel. In addition, the kernels only operate for about a second and a half, but the entire program takes about 6 seconds to run to select devices read and build kernels and create buffers. Therefore, it is apparent that this size matrix is too small for the benefits of parallelization however after 3000 or larger matrix size this algorithm becomes very useful.
 ## Additional Findings
