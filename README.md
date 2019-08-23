@@ -6,3 +6,10 @@ In this report I am going to compare speed of parallelized algorithm of the most
 There are several methods to invert matrices but after research Gauss Jordan method was selected as the preferred method in this application because it is the most easily parallelizable method. Other methods have been developed to invert matrices with slightly smaller operational intensity but unfortunately, they are slower when parallelized. 
 ### Mathematical Representation 
 This method requires two matrices to be appended the original matrix and the identity matrix after that the two steps can be done. For example, see the matrix below:
+![matrix1](/images/matrix1.PNG)
+Every row operation has to be done on the working matrix. Gauss Jordan matrix inversion algorithm requires two main steps per row of the matrix. The first step requires matrix row elements to be divided by the diagonal element of the matrix. At the end the diagonal element is one. When step one is completed the working matrix will be:
+![matrix2](/images/matrix2.PNG)
+In two steps must be conducted row by row sequentially but this step for each column happens on all the elements of the matrix except for the row number that is equal to the current row or the pivot row. In this step every item is subtracted by the same element on the pivot row multiplied by the pivot element on the item’s row. The result will be after the first pivot column. 
+![matrix3](/images/matrix3.PNG)
+Same two steps is repeated for every row then the result will be identity matrix on the right-hand side and inverted matrix on the left-hand side.
+![matrix4](/images/matrix4.PNG)
